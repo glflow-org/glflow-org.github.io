@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Practical Excel, VBA, SQL, Python and automation tutorials for accountants and finance professionals.">
   <title>glFlow | Practical Finance Automation</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,8 +14,10 @@
 <body>
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="#top"><span class="brand-gl">gl</span><span class="brand-flow">Flow</span></a>
-      <nav>
+      <a class="brand" href="#top" aria-label="glFlow home">
+        <img src="assets/logo.svg" alt="glFlow logo">
+      </a>
+      <nav aria-label="Main navigation">
         <a href="#tutorials">Tutorials</a>
         <a href="#topics">Topics</a>
         <a href="#downloads">Downloads</a>
@@ -29,22 +32,20 @@
         <div>
           <p class="eyebrow">Excel • VBA • Python • SQL • Automation</p>
           <h1>Practical automation for finance professionals.</h1>
-          <p class="hero-copy">Clear, hands-on tutorials that help accountants and finance teams compare data, automate repetitive work and build more reliable workflows.</p>
+          <p class="hero-copy">
+            Clear, hands-on tutorials that help accountants and finance teams compare data,
+            automate repetitive work and build more reliable workflows.
+          </p>
           <div class="button-row">
-            <a class="button button-primary" href="https://youtu.be/uhXzDsRfGEU" target="_blank" rel="noopener">Watch latest tutorial</a>
-            <a class="button button-secondary" href="#downloads">Download sample files</a>
+            <a class="button button-primary" href="https://www.youtube.com/watch?v=uhXzDsRfGEU" target="_blank" rel="noopener">
+              Watch latest tutorial
+            </a>
+            <a class="button button-secondary" href="#downloads">Download files</a>
           </div>
         </div>
 
-        <div class="hero-card">
-          <div class="window-bar"><span></span><span></span><span></span></div>
-          <div class="mini-sheet">
-            <div class="mini-row mini-head"><b>ID</b><b>GL</b><b>Analytics</b><b>Result</b></div>
-            <div class="mini-row"><span>CUST0035</span><span>71,024</span><span>66,368</span><strong>Mismatch</strong></div>
-            <div class="mini-row"><span>CUST0143</span><span>41,420</span><span>44,425</span><strong>Mismatch</strong></div>
-            <div class="mini-row"><span>CUST0506</span><span>0</span><span>36,294</span><strong>Right only</strong></div>
-          </div>
-          <div class="code-block"><code>merge(how="outer", indicator=True)</code></div>
+        <div class="hero-visual">
+          <img src="assets/recon-thumbnail.png" alt="Python in Excel reconciliation tutorial thumbnail">
         </div>
       </div>
     </section>
@@ -55,19 +56,36 @@
           <p class="eyebrow">Latest tutorials</p>
           <h2>Solutions built around real work.</h2>
         </div>
+
         <div class="cards two-col">
-          <article class="card featured-card">
-            <span class="card-tag">Python in Excel</span>
-            <h3>Compare Two Tables and Find Mismatches</h3>
-            <p>Use pandas grouping, outer merge and the merge indicator to identify matching, missing and extra records.</p>
-            <a href="https://youtu.be/uhXzDsRfGEU" target="_blank" rel="noopener">Watch tutorial →</a>
+          <article class="video-card">
+            <a class="thumbnail-link" href="https://www.youtube.com/watch?v=uhXzDsRfGEU" target="_blank" rel="noopener">
+              <img src="assets/recon-thumbnail.png" alt="Find Mismatches with Python thumbnail">
+            </a>
+            <div class="card-body">
+              <span class="card-tag">Python in Excel</span>
+              <h3>Compare Two Tables and Find Mismatches</h3>
+              <p>Use pandas grouping, outer merge and the merge indicator to identify matching, missing and extra records.</p>
+              <div class="card-actions">
+                <a href="https://www.youtube.com/watch?v=uhXzDsRfGEU" target="_blank" rel="noopener">Watch tutorial →</a>
+                <a href="downloads/Python_in_Excel_Compare_Tables_Sample.xlsx" download>Download workbook</a>
+              </div>
+            </div>
           </article>
 
-          <article class="card">
-            <span class="card-tag">Excel VBA</span>
-            <h3>Format Numbers and Switch Signs Faster</h3>
-            <p>Practical keyboard shortcuts for repetitive formatting tasks, including filtered and visible cells.</p>
-            <span class="muted-link">Video link coming soon</span>
+          <article class="video-card">
+            <a class="thumbnail-link" href="https://www.youtube.com/watch?v=cLxy_QnXoKE&t=5s" target="_blank" rel="noopener">
+              <img src="assets/vba-shortcuts-thumbnail.png" alt="VBA Shortcuts thumbnail">
+            </a>
+            <div class="card-body">
+              <span class="card-tag">Excel VBA</span>
+              <h3>Format Numbers and Switch Signs Faster</h3>
+              <p>Practical keyboard shortcuts for repetitive formatting tasks, including filtered and visible cells.</p>
+              <div class="card-actions">
+                <a href="https://www.youtube.com/watch?v=cLxy_QnXoKE&t=5s" target="_blank" rel="noopener">Watch tutorial →</a>
+                <a href="#vba-files">Download modules</a>
+              </div>
+            </div>
           </article>
         </div>
       </div>
@@ -89,13 +107,41 @@
     </section>
 
     <section id="downloads" class="section">
-      <div class="container download-panel">
-        <div>
+      <div class="container">
+        <div class="section-heading">
           <p class="eyebrow">Downloads</p>
-          <h2>Practice with the same files used in the tutorials.</h2>
-          <p>Download the sample workbook for the Python in Excel reconciliation tutorial.</p>
+          <h2>Files used in the tutorials.</h2>
+          <p class="section-copy">Download the workbooks and VBA modules directly from glflow.org.</p>
         </div>
-        <a class="button button-primary" href="https://drive.google.com/drive/folders/1mN6SG0W7eifKY4E6cu4u5hV3iGudIjjS?usp=sharing" target="_blank" rel="noopener">Download sample workbook</a>
+
+        <div class="download-grid">
+          <article class="download-card">
+            <span class="file-type">XLSX</span>
+            <div>
+              <h3>Python in Excel sample workbook</h3>
+              <p>Source tables and reconciliation example from the Python tutorial.</p>
+            </div>
+            <a class="button button-small" href="downloads/Python_in_Excel_Compare_Tables_Sample.xlsx" download>Download</a>
+          </article>
+
+          <article id="vba-files" class="download-card">
+            <span class="file-type">BAS</span>
+            <div>
+              <h3>Number Format shortcut</h3>
+              <p>VBA module for toggling between Number and General formats.</p>
+            </div>
+            <a class="button button-small" href="downloads/NumberFormat.bas" download>Download</a>
+          </article>
+
+          <article class="download-card">
+            <span class="file-type">BAS</span>
+            <div>
+              <h3>Switch Sign shortcut</h3>
+              <p>VBA module for switching the sign of visible numeric constant cells.</p>
+            </div>
+            <a class="button button-small" href="downloads/SwitchSign.bas" download>Download</a>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -105,17 +151,21 @@
           <p class="eyebrow">About glFlow</p>
           <h2>Practical solutions, not abstract examples.</h2>
         </div>
-        <p class="about-copy">glFlow shares focused Excel, VBA, SQL, Python and automation tutorials designed around real accounting and finance workflows. The goal is simple: reduce manual work, improve control and make technical solutions easier to apply.</p>
+        <p class="about-copy">
+          glFlow shares focused Excel, VBA, SQL, Python and automation tutorials designed around
+          real accounting and finance workflows. The goal is simple: reduce manual work, improve
+          control and make technical solutions easier to apply.
+        </p>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container footer-wrap">
-      <div class="brand footer-brand"><span class="brand-gl">gl</span><span class="brand-flow">Flow</span></div>
+      <img class="footer-logo" src="assets/logo.svg" alt="glFlow">
       <div class="footer-links">
         <a href="https://github.com/glflow-org" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://youtu.be/uhXzDsRfGEU" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.youtube.com/watch?v=uhXzDsRfGEU" target="_blank" rel="noopener">YouTube</a>
       </div>
       <p>© 2026 glFlow</p>
     </div>
