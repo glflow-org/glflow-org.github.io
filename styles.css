@@ -44,3 +44,38 @@ footer{color:#fff;background:radial-gradient(circle at 10% 0%,rgba(255,255,255,.
 .footer-bottom{padding:20px 0 25px;border-top:1px solid rgba(255,255,255,.25);color:#dceaf6;text-align:center;font-size:.82rem}
 @media(max-width:980px){.hero-grid{grid-template-columns:1fr}.topics-grid{grid-template-columns:repeat(2,1fr)}.footer-main{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:720px){.container{width:min(100% - 28px,1180px)}.nav-wrap{min-height:82px;gap:12px}.brand img{width:138px;height:auto;max-height:62px}nav a:not(.nav-cta){display:none}.hero{padding:58px 0}.section{padding:62px 0}.tutorial-grid,.topics-grid{grid-template-columns:1fr}.download-card{grid-template-columns:auto 1fr}.download-button{grid-column:1/-1;text-align:center}.about-grid{grid-template-columns:1fr;gap:30px}.footer-main{grid-template-columns:1fr;gap:28px}}
+
+/* glFlow 1.3 mobile header logo fix */
+.brand picture {
+  display: block;
+  width: 170px;
+  line-height: 0;
+}
+.brand picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: left center;
+}
+@media (max-width: 720px) {
+  .site-header .nav-wrap {
+    min-height: 82px;
+    align-items: center;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+  }
+  .brand picture {
+    width: 132px;
+    flex: 0 0 132px;
+  }
+  .brand picture img {
+    width: 132px;
+    height: auto;
+    max-height: none;
+  }
+}
