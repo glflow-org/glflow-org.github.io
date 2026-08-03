@@ -1,28 +1,22 @@
-# glFlow Website v1.4
+# glFlow Website v1.5
 
-Stable SEO and sharing release based on v1.3.1.
+Google Analytics release based on v1.4.
 
 ## Added
-- Search-optimized page title and meta description
-- Canonical URL and robots directives
-- Open Graph metadata for link previews
-- Twitter/X card metadata
-- Schema.org Organization and WebSite structured data
-- Apple touch icon support
-- robots.txt and sitemap.xml
-- Google Analytics placeholder for the future GA4 Measurement ID
-
-## Changed
-- Improved hero description for accounting and finance search intent
-- Refined download-card interactions
-- Footer now notes that the site is built with GitHub Pages
+- Google Analytics 4 tracking
+- Measurement ID: `G-WG2D2PWDNS`
+- Automatic page-view measurement
+- Enhanced measurement support for scrolls, outbound clicks and file downloads
 
 ## Preserved
-- Working desktop and mobile header logo
-- White/yellow footer logo
-- Correct glFlow YouTube channel link
-- Specific tutorial video links
+- SEO metadata and structured data
+- Search Console support files
+- Working desktop and mobile logos
+- Correct glFlow YouTube channel links
 - contact@glflow.org
-- Existing downloads
+- Existing tutorial and download links
+
+## Verification
+After deployment, open Google Analytics and check **Reports > Realtime** while visiting https://glflow.org in another browser tab.
 
 Live site: https://glflow.org
