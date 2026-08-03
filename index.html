@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=1.5">
+  <link rel="stylesheet" href="styles.css?v=1.6">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WG2D2PWDNS"></script>
@@ -87,7 +87,7 @@
       <a href="#topics">Topics</a>
       <a href="#downloads">Downloads</a>
       <a href="#about">About</a>
-      <a class="nav-cta" href="https://www.youtube.com/@glFlowTech/videos" target="_blank" rel="noopener">▶ YouTube</a>
+      <a class="nav-cta" href="https://www.youtube.com/@glFlowTech/videos" target="_blank" rel="noopener" data-track="youtube" data-destination="channel">▶ YouTube</a>
     </nav>
   </div>
 </header>
@@ -103,11 +103,11 @@
           automate repetitive Excel, VBA, Python and SQL tasks.
         </p>
         <div class="button-row">
-          <a class="button button-primary" href="https://www.youtube.com/@glFlowTech/videos" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+          <a class="button button-primary" href="https://www.youtube.com/@glFlowTech/videos" target="_blank" rel="noopener" data-track="youtube" data-destination="channel">▶ Watch on YouTube</a>
           <a class="button button-secondary" href="#downloads">⬇ Downloads</a>
         </div>
       </div>
-      <a class="hero-visual" href="https://www.youtube.com/watch?v=uhXzDsRfGEU" target="_blank" rel="noopener">
+      <a class="hero-visual" href="https://www.youtube.com/watch?v=uhXzDsRfGEU" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial">
         <img src="assets/recon-thumbnail.png" alt="Find Mismatches with Python tutorial">
       </a>
     </div>
@@ -122,7 +122,7 @@
 
       <div class="tutorial-grid">
         <article class="tutorial-card">
-          <a class="tutorial-thumb" href="https://www.youtube.com/watch?v=cLxy_QnXoKE&t=5s" target="_blank" rel="noopener">
+          <a class="tutorial-thumb" href="https://www.youtube.com/watch?v=cLxy_QnXoKE&t=5s" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial">
             <img src="assets/vba-shortcuts-thumbnail.png" alt="VBA Shortcuts tutorial">
           </a>
           <div class="tutorial-body">
@@ -130,14 +130,14 @@
             <h3>VBA Shortcuts: Format Numbers and Switch Signs</h3>
             <p>Two practical macros that speed up repetitive formatting tasks in Excel.</p>
             <div class="card-links">
-              <a href="https://www.youtube.com/watch?v=cLxy_QnXoKE&t=5s" target="_blank" rel="noopener">▶ Watch tutorial</a>
+              <a href="https://www.youtube.com/watch?v=cLxy_QnXoKE&t=5s" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial">▶ Watch tutorial</a>
               <a href="#vba-downloads">⬇ Download files</a>
             </div>
           </div>
         </article>
 
         <article class="tutorial-card">
-          <a class="tutorial-thumb" href="https://www.youtube.com/watch?v=uhXzDsRfGEU" target="_blank" rel="noopener">
+          <a class="tutorial-thumb" href="https://www.youtube.com/watch?v=uhXzDsRfGEU" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial">
             <img src="assets/recon-thumbnail.png" alt="Python in Excel reconciliation tutorial">
           </a>
           <div class="tutorial-body">
@@ -145,8 +145,8 @@
             <h3>Compare Two Tables and Find Mismatches</h3>
             <p>Compare tables, identify missing records and reconcile data using pandas.</p>
             <div class="card-links">
-              <a href="https://www.youtube.com/watch?v=uhXzDsRfGEU" target="_blank" rel="noopener">▶ Watch tutorial</a>
-              <a href="downloads/Python_in_Excel_Compare_Tables_Sample.xlsx" download>⬇ Download workbook</a>
+              <a href="https://www.youtube.com/watch?v=uhXzDsRfGEU" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial">▶ Watch tutorial</a>
+              <a href="downloads/Python_in_Excel_Compare_Tables_Sample.xlsx" download data-track="download" data-file="python_in_excel_sample_workbook">⬇ Download workbook</a>
             </div>
           </div>
         </article>
@@ -180,17 +180,17 @@
         <article class="download-card">
           <span class="file-type" aria-label="Excel workbook">XLSX</span>
           <div><h3>Python in Excel sample workbook</h3><p>Source tables and reconciliation example from the Python tutorial.</p></div>
-          <a class="download-button" href="downloads/Python_in_Excel_Compare_Tables_Sample.xlsx" download>Download</a>
+          <a class="download-button" href="downloads/Python_in_Excel_Compare_Tables_Sample.xlsx" download data-track="download" data-file="python_in_excel_sample_workbook">Download</a>
         </article>
         <article id="vba-downloads" class="download-card">
           <span class="file-type" aria-label="VBA module">BAS</span>
           <div><h3>Number Format shortcut</h3><p>Toggle between Number and General formats.</p></div>
-          <a class="download-button" href="downloads/NumberFormat.bas" download>Download</a>
+          <a class="download-button" href="downloads/NumberFormat.bas" download data-track="download" data-file="number_format_vba_module">Download</a>
         </article>
         <article class="download-card">
           <span class="file-type" aria-label="VBA module">BAS</span>
           <div><h3>Switch Sign shortcut</h3><p>Switch the sign of visible numeric constant cells.</p></div>
-          <a class="download-button" href="downloads/SwitchSign.bas" download>Download</a>
+          <a class="download-button" href="downloads/SwitchSign.bas" download data-track="download" data-file="switch_sign_vba_module">Download</a>
         </article>
       </div>
     </div>
@@ -229,12 +229,38 @@
     </div>
     <div class="footer-column">
         <h3>Connect</h3>
-        <a href="https://www.youtube.com/@glFlowTech/videos" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.youtube.com/@glFlowTech/videos" target="_blank" rel="noopener" data-track="youtube" data-destination="channel">YouTube</a>
         <a href="https://github.com/glflow-org" target="_blank" rel="noopener">GitHub</a>
         <a href="mailto:contact@glflow.org">contact@glflow.org</a>
       </div>
   </div>
   <div class="container footer-bottom">© 2026 glFlow • All rights reserved. • Built with GitHub Pages.</div>
 </footer>
+
+  <script>
+    document.addEventListener('click', function (event) {
+      const link = event.target.closest('a[data-track]');
+      if (!link || typeof gtag !== 'function') return;
+
+      const trackType = link.dataset.track;
+
+      if (trackType === 'download') {
+        gtag('event', 'file_download', {
+          file_name: link.dataset.file || '',
+          link_url: link.href,
+          link_text: link.textContent.trim()
+        });
+      }
+
+      if (trackType === 'youtube') {
+        gtag('event', 'youtube_click', {
+          destination: link.dataset.destination || '',
+          link_url: link.href,
+          link_text: link.textContent.trim()
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>
