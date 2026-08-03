@@ -71,3 +71,23 @@ footer{color:#fff;background:radial-gradient(circle at 10% 0%,rgba(255,255,255,.
     max-height: 96px;
   }
 }
+
+/* glFlow Website v1.4 refinements */
+.download-card {
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.download-card:hover {
+  transform: translateY(-2px);
+  border-color: #c7d9e8;
+  box-shadow: 0 12px 30px rgba(18,56,88,.08);
+}
+.download-button {
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.download-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(18,56,88,.12);
+}
+.footer-bottom {
+  line-height: 1.5;
+}
