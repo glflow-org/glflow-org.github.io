@@ -26,3 +26,9 @@ Analytics event tracking release based on v1.5.
 - contact@glflow.org
 
 Live site: https://glflow.org
+
+
+## Footer logo fix
+- Preserves the footer logo's intrinsic aspect ratio.
+- Prevents the circular outline from appearing oval.
+- Adds cache-busting parameters for the corrected CSS and image.

@@ -57,18 +57,19 @@ footer{color:#fff;background:radial-gradient(circle at 10% 0%,rgba(255,255,255,.
 .footer-brand img,
 .footer-logo {
   display: block;
-  width: 190px;
-  height: auto;
-  max-height: 112px;
+  width: auto;
+  height: 112px;
+  max-width: 190px;
   object-fit: contain;
   object-position: left center;
+  margin-bottom: 8px;
 }
 @media (max-width: 720px) {
   .footer-brand img,
   .footer-logo {
-    width: 155px;
-    height: auto;
-    max-height: 96px;
+    width: auto;
+    height: 96px;
+    max-width: 155px;
   }
 }
 
