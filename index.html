@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- glFlow Website v1.7: detailed YouTube video click tracking -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -107,7 +108,7 @@
           <a class="button button-secondary" href="#downloads">⬇ Downloads</a>
         </div>
       </div>
-      <a class="hero-visual" href="https://www.youtube.com/watch?v=uhXzDsRfGEU" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial">
+      <a class="hero-visual" href="https://www.youtube.com/watch?v=uhXzDsRfGEU" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial" data-video="python_in_excel_reconciliation">
         <img src="assets/recon-thumbnail.png" alt="Find Mismatches with Python tutorial">
       </a>
     </div>
@@ -122,7 +123,7 @@
 
       <div class="tutorial-grid">
         <article class="tutorial-card">
-          <a class="tutorial-thumb" href="https://www.youtube.com/watch?v=cLxy_QnXoKE&t=5s" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial">
+          <a class="tutorial-thumb" href="https://www.youtube.com/watch?v=cLxy_QnXoKE&t=5s" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial" data-video="vba_shortcuts">
             <img src="assets/vba-shortcuts-thumbnail.png" alt="VBA Shortcuts tutorial">
           </a>
           <div class="tutorial-body">
@@ -130,14 +131,14 @@
             <h3>VBA Shortcuts: Format Numbers and Switch Signs</h3>
             <p>Two practical macros that speed up repetitive formatting tasks in Excel.</p>
             <div class="card-links">
-              <a href="https://www.youtube.com/watch?v=cLxy_QnXoKE&t=5s" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial">▶ Watch tutorial</a>
+              <a href="https://www.youtube.com/watch?v=cLxy_QnXoKE&t=5s" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial" data-video="vba_shortcuts">▶ Watch tutorial</a>
               <a href="#vba-downloads">⬇ Download files</a>
             </div>
           </div>
         </article>
 
         <article class="tutorial-card">
-          <a class="tutorial-thumb" href="https://www.youtube.com/watch?v=uhXzDsRfGEU" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial">
+          <a class="tutorial-thumb" href="https://www.youtube.com/watch?v=uhXzDsRfGEU" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial" data-video="python_in_excel_reconciliation">
             <img src="assets/recon-thumbnail.png" alt="Python in Excel reconciliation tutorial">
           </a>
           <div class="tutorial-body">
@@ -145,7 +146,7 @@
             <h3>Compare Two Tables and Find Mismatches</h3>
             <p>Compare tables, identify missing records and reconcile data using pandas.</p>
             <div class="card-links">
-              <a href="https://www.youtube.com/watch?v=uhXzDsRfGEU" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial">▶ Watch tutorial</a>
+              <a href="https://www.youtube.com/watch?v=uhXzDsRfGEU" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial" data-video="python_in_excel_reconciliation">▶ Watch tutorial</a>
               <a href="downloads/Python_in_Excel_Compare_Tables_Sample.xlsx" download data-track="download" data-file="python_in_excel_sample_workbook">⬇ Download workbook</a>
             </div>
           </div>
@@ -269,6 +270,7 @@
       if (trackType === 'youtube') {
         gtag('event', 'youtube_click', {
           destination: link.dataset.destination || '',
+          video_name: link.dataset.video || '',
           link_url: link.href,
           link_text: link.textContent.trim()
         });
