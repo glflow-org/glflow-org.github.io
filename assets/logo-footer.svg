@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="480.17072"
-   height="403.87558"
-   viewBox="0 0 127.04516 106.85875"
+   width="480.17078"
+   height="407.85245"
+   viewBox="0 0 127.04518 107.91096"
    version="1.1"
    id="svg1"
    xml:space="preserve"
@@ -12,7 +12,7 @@
    xmlns:svg="http://www.w3.org/2000/svg"><defs
      id="defs1" /><g
      id="layer1"
-     transform="translate(-37.802611,-110.25693)"><g
+     transform="translate(-37.802611,-109.73073)"><g
        id="layer1-8"
        transform="matrix(5.5836775,0,0,5.5836775,-295.43297,-532.62361)"><text
          xml:space="preserve"
@@ -47,4 +47,4 @@
            y="127.38171">Flow</tspan></text><path
          style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.114654;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
          id="path11"
-         d="m 64.377299,120.07909 a 9.6053677,9.5111055 0 0 1 10.205119,-4.71471 9.6053677,9.5111055 0 0 1 7.714227,8.12354 9.6053677,9.5111055 0 0 1 -5.37988,9.79597 9.6053677,9.5111055 0 0 1 -11.079334,-1.99617" /></g></g></svg>
+         d="m 64.377299,120.03325 a 9.6053677,9.6053467 0 0 1 10.205119,-4.76142 9.6053677,9.6053467 0 0 1 7.714227,8.20403 9.6053677,9.6053467 0 0 1 -5.37988,9.89304 9.6053677,9.6053467 0 0 1 -11.079334,-2.01595" /></g></g></svg>
