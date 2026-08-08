@@ -260,7 +260,7 @@
       const trackType = link.dataset.track;
 
       if (trackType === 'download') {
-        gtag('event', 'file_download', {
+        gtag('event', 'glflow_file_download', {
           file_name: link.dataset.file || '',
           link_url: link.href,
           link_text: link.textContent.trim()
