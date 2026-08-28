@@ -119,5 +119,5 @@ footer{color:#fff;background:radial-gradient(circle at 10% 0%,rgba(255,255,255,.
 @media(max-width:720px){.tutorial-hero{padding:48px 0}.tutorial-sidebar{grid-template-columns:1fr}.tutorial-copy-block{padding:25px}.video-actions .button{width:100%}.tutorial-page h1{font-size:2.55rem}.tutorial-hero-grid{gap:34px}}
 
 #about {
-  scroll-margin-top: 120px;
+  scroll-margin-top: 60px;
 }
