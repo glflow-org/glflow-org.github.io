@@ -117,3 +117,7 @@ footer{color:#fff;background:radial-gradient(circle at 10% 0%,rgba(255,255,255,.
 .tutorial-workflow-section{border-top:1px solid var(--line)}.compact-workflow .workflow-steps{padding-top:12px}.workflow-step.is-current{background:#f3f9fd;margin:0 -18px;padding-left:18px;padding-right:18px;border-radius:12px}.workflow-step.is-current .step-status{color:var(--blue-deep)}
 @media(max-width:980px){.tutorial-hero-grid,.tutorial-layout{grid-template-columns:1fr}.tutorial-sidebar{position:static;grid-template-columns:repeat(2,1fr)}.tutorial-key-points{grid-template-columns:1fr}.tutorial-hero-image{max-width:760px}}
 @media(max-width:720px){.tutorial-hero{padding:48px 0}.tutorial-sidebar{grid-template-columns:1fr}.tutorial-copy-block{padding:25px}.video-actions .button{width:100%}.tutorial-page h1{font-size:2.55rem}.tutorial-hero-grid{gap:34px}}
+
+#about {
+  scroll-margin-top: 120px;
+}
