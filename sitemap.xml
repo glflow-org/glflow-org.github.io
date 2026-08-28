@@ -11,4 +11,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url><loc>https://glflow.org/tutorials/vba-shortcuts/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://glflow.org/tutorials/python-reconciliation/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://glflow.org/tutorials/current-coupon/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
