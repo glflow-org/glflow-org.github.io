@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQL Playground | glFlow</title>
+  <meta name="description" content="Practice finance-focused SQL directly in your browser with the glFlow SQL Playground. No database setup required.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0f5da8">
+  <link rel="canonical" href="https://glflow.org/playground/">
+  <link rel="icon" type="image/png" href="../assets/logo-source.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=playground-v1-2">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"glFlow SQL Playground",
+    "applicationCategory":"EducationalApplication",
+    "operatingSystem":"Web Browser",
+    "url":"https://glflow.org/playground/",
+    "description":"A browser-based SQL playground for practicing finance and accounting queries.",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+  }
+  </script>
+</head>
+<body class="playground-page">
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="../" aria-label="glFlow home">
+      <img src="../assets/logo-header.png" alt="glFlow logo">
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="../#tutorials">Tutorials</a>
+      <a href="../#workflows">Workflows</a>
+      <a class="nav-active" href="./">Playground</a>
+      <a href="../#downloads">Downloads</a>
+      <a href="../#about">About</a>
+      <a class="nav-cta" href="https://www.youtube.com/@glFlowTech/videos" target="_blank" rel="noopener">▶ YouTube</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="playground-intro">
+    <div class="container playground-intro-grid">
+      <div>
+        <p class="eyebrow">glFlow SQL Playground · v1.2</p>
+        <h1>Run SQL. Explore the data. Learn by doing.</h1>
+        <p class="playground-lead">Practice SQL against the GLF securities demo database directly in your browser. Explore securities, repo transactions, accounting entries and reference data with no installation or login required.</p>
+      </div>
+      <div class="engine-card" aria-live="polite">
+        <span class="engine-dot" id="engine-dot"></span>
+        <div><strong id="engine-status">Starting SQL engine…</strong><small>DuckDB-Wasm · full GLF demo · runs locally</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="playground-workspace-section">
+    <div class="container playground-workspace">
+      <aside class="playground-sidebar" aria-label="Playground tools">
+        <div class="pg-panel">
+          <div class="pg-panel-heading"><span>Examples</span><small>Load query</small></div>
+          <button class="example-button active" type="button" data-example="explore">Explore instruments<span>SELECT</span></button>
+          <button class="example-button" type="button" data-example="current-coupon">Current coupon<span>ROW_NUMBER</span></button>
+          <button class="example-button" type="button" data-example="repo-pnl">Repo P&amp;L<span>GREATEST / LEAST</span></button>
+          <button class="example-button" type="button" data-example="reconciliation">P&amp;L reconciliation<span>SUM / CASE</span></button>
+        </div>
+
+        <div class="pg-panel tables-panel database-explorer">
+          <div class="pg-panel-heading"><span>Database explorer</span><small>Full GLF demo</small></div>
+
+          <details class="db-group" open>
+            <summary>Securities <span>4 tables</span></summary>
+            <button class="table-button" data-table="instrument" type="button"><strong>instrument</strong><span>40 rows</span></button>
+            <button class="table-button" data-table="coupon" type="button"><strong>coupon</strong><span>398 rows</span></button>
+            <button class="table-button" data-table="security_transaction" type="button"><strong>security_transaction</strong><span>13,228 rows</span></button>
+            <button class="table-button" data-table="market_price" type="button"><strong>market_price</strong><span>0 rows</span></button>
+          </details>
+
+          <details class="db-group" open>
+            <summary>Repo <span>2 tables</span></summary>
+            <button class="table-button" data-table="repo_transaction" type="button"><strong>repo_transaction</strong><span>300 rows</span></button>
+            <button class="table-button" data-table="repo_gl_mapping" type="button"><strong>repo_gl_mapping</strong><span>6 rows</span></button>
+          </details>
+
+          <details class="db-group">
+            <summary>Accounting <span>3 tables</span></summary>
+            <button class="table-button" data-table="gl_account" type="button"><strong>gl_account</strong><span>47 rows</span></button>
+            <button class="table-button" data-table="gl_account_mapping" type="button"><strong>gl_account_mapping</strong><span>33 rows</span></button>
+            <button class="table-button" data-table="gl_entry" type="button"><strong>gl_entry</strong><span>201,090 rows</span></button>
+          </details>
+
+          <details class="db-group">
+            <summary>Reference data <span>6 tables</span></summary>
+            <button class="table-button" data-table="customer" type="button"><strong>customer</strong><span>14 rows</span></button>
+            <button class="table-button" data-table="fx_rate" type="button"><strong>fx_rate</strong><span>4,384 rows</span></button>
+            <button class="table-button" data-table="calendar" type="button"><strong>calendar</strong><span>1,096 rows</span></button>
+            <button class="table-button" data-table="seed_currency" type="button"><strong>seed_currency</strong><span>4 rows</span></button>
+            <button class="table-button" data-table="seed_issuer" type="button"><strong>seed_issuer</strong><span>10 rows</span></button>
+            <button class="table-button" data-table="seed_market" type="button"><strong>seed_market</strong><span>4 rows</span></button>
+          </details>
+        </div>
+
+        <div class="pg-note">
+          <strong>Oracle SQL user?</strong>
+          <p>This browser version uses DuckDB SQL. This playground uses the full exported GLF demo dataset. Oracle-specific functions such as SYSDATE or DUAL may need a small DuckDB equivalent, but glf.table schema references are supported.</p>
+        </div>
+      </aside>
+
+      <div class="playground-main">
+        <div class="editor-card">
+          <div class="editor-toolbar">
+            <div class="editor-title"><strong>Query editor</strong><span id="example-title">Explore instruments</span></div>
+            <div class="query-mode-toggle" id="query-mode-toggle" hidden aria-label="Tutorial query version">
+              <button id="starting-point-button" class="query-mode-button active" type="button" aria-pressed="true">Starting point</button>
+              <button id="final-solution-button" class="query-mode-button" type="button" aria-pressed="false">Final solution</button>
+            </div>
+            <div class="editor-actions">
+              <button id="reset-button" class="pg-button pg-button-secondary" type="button">Reset</button>
+              <button id="run-button" class="pg-button pg-button-primary" type="button" disabled>▶ Run Query</button>
+            </div>
+          </div>
+          <div class="editor-wrap">
+            <div class="line-numbers" id="line-numbers" aria-hidden="true">1</div>
+            <textarea id="sql-editor" class="sql-editor" spellcheck="false" aria-label="SQL query editor"></textarea>
+          </div>
+          <div class="editor-footer"><span>Tip: press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to run</span><span>Read-only demo environment</span></div>
+        </div>
+
+        <div id="message-box" class="query-message" hidden></div>
+
+        <div class="results-card">
+          <div class="results-toolbar">
+            <div><strong>Results</strong><span id="result-meta">Run a query to see the result</span></div>
+            <span class="result-badge" id="result-badge">Ready</span>
+          </div>
+          <div class="result-table-wrap" id="result-container">
+            <div class="empty-results"><div class="empty-icon">⌘</div><strong>Your query results will appear here.</strong><span>Choose an example or write your own SELECT statement.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="playground-about section-alt">
+    <div class="container playground-about-grid">
+      <div>
+        <p class="eyebrow">Built for learning</p>
+        <h2>A real SQL engine, without the setup.</h2>
+        <p>DuckDB-Wasm executes the query inside your browser. The full exported GLF demo database is recreated in DuckDB-Wasm when the page loads. You can practice against the same tables and data used to build the SQL tutorials, without changing anything on a server.</p>
+      </div>
+      <div class="future-card">
+        <span>V2 READY</span>
+        <h3>Designed for a future database backend</h3>
+        <p>The editor talks to a separate execution layer. Later, glFlow can replace the browser engine with an API-backed database while keeping the same playground interface.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img class="footer-logo" src="../assets/logo-footer.png" alt="glFlow">
+      <p>Practical finance automation with Excel, VBA, Python and SQL.</p>
+    </div>
+    <div class="footer-column"><h3>Explore</h3><a href="../#tutorials">Tutorials</a><a href="../#workflows">Workflows</a><a href="./">SQL Playground</a><a href="../#downloads">Downloads</a></div>
+    <div class="footer-column"><h3>Connect</h3><a href="https://www.youtube.com/@glFlowTech/videos" target="_blank" rel="noopener">YouTube</a><a href="mailto:contact@glflow.org">contact@glflow.org</a></div>
+  </div>
+  <div class="container footer-bottom"><span>© 2026 glFlow</span><span>Practical tools for finance workflows.</span></div>
+</footer>
+
+<script type="module" src="playground.js"></script>
+</body>
+</html>

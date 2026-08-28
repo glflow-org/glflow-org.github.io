@@ -1,34 +1,34 @@
-# glFlow Website v1.6
+# glFlow website
 
-Analytics event tracking release based on v1.5.
+Static glFlow website for GitHub Pages.
 
-## Added
-- File download event tracking
-- YouTube click event tracking
-- Separate labels for the Python workbook and both VBA modules
-- Distinction between YouTube channel and tutorial links
+## SQL Playground v1.1
 
-## Google Analytics events
-- `file_download`
-  - `file_name`
-  - `link_url`
-  - `link_text`
-- `youtube_click`
-  - `destination`
-  - `link_url`
-  - `link_text`
+The browser playground uses DuckDB-Wasm and includes a compact version of the core GLF securities demo database.
 
-## Preserved
-- Google Analytics 4 measurement ID
-- SEO metadata and structured data
-- Search Console support files
-- Existing responsive design and branding
-- contact@glflow.org
+Core browser tables:
+- calendar
+- customer
+- instrument
+- coupon
+- security_transaction
+- repo_transaction
+- market_price
+- fx_rate
+- gl_account
+- gl_account_mapping
+- repo_gl_mapping
+- gl_entry
 
-Live site: https://glflow.org
+The P&L reconciliation example is based on the tutorial reconciliation query and compares calculated repo P&L with booked GL entries at GL / instrument / ISIN / currency level.
+
+The playground execution layer remains separated in `playground/engine.js`, so a later backend/API can replace DuckDB-Wasm without rebuilding the UI.
 
 
-## Footer logo fix
-- Preserves the footer logo's intrinsic aspect ratio.
-- Prevents the circular outline from appearing oval.
-- Adds cache-busting parameters for the corrected CSS and image.
+## v2.4 / SQL Playground v1.2
+- Replaced the compact synthetic browser data with the full exported GLF demo dataset (15 tables).
+- Added `glf.table` schema views while keeping unqualified table names available.
+- Added Starting point / Final solution switching for tutorial queries.
+- Current Coupon and Repo P&L starting points are based on the tutorial base SQL files.
+- P&L reconciliation uses the real reconciliation query logic and the full GLF data.
+- Database Explorer now shows the real GLF table row counts.
