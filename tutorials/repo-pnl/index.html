@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculate Repo P&amp;L with Oracle SQL | glFlow</title>
+  <meta name="description" content="Calculate Repo profit and loss for a reporting period with Oracle SQL using GREATEST and LEAST. Watch the tutorial, download the SQL, and follow the Repo P&amp;L reconciliation workflow.">
+  <link rel="canonical" href="https://glflow.org/tutorials/repo-pnl/">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="icon" href="../../assets/favicon.ico">
+</head>
+<body class="tutorial-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../../" aria-label="glFlow home">
+        <img src="../../assets/logo-source.png" alt="glFlow">
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="../../#tutorials">Tutorials</a>
+        <a href="../../#workflows">Workflows</a>
+        <a href="../../#downloads">Downloads</a>
+        <a href="../../#about">About</a>
+        <a class="nav-cta" href="https://www.youtube.com/@glFlowTech/videos" target="_blank" rel="noopener">▶ YouTube</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="tutorial-hero section-alt">
+      <div class="container tutorial-hero-grid">
+        <div class="tutorial-hero-copy">
+          <a class="back-link" href="../../#tutorials">← All tutorials</a>
+          <p class="eyebrow">Oracle SQL tutorial</p>
+          <h1>Calculate Repo P&amp;L with Oracle SQL</h1>
+          <p class="tutorial-lead">Calculate repo profit and loss for a reporting period using the GREATEST and LEAST functions to determine the correct calculation window.</p>
+          <div class="tutorial-meta">
+            <span class="tag">Oracle SQL</span>
+            <span class="meta-text">Finance · Repo · P&amp;L</span>
+          </div>
+        </div>
+        <div class="tutorial-hero-image">
+          <img src="../../assets/repo-pnl-thumbnail.png" alt="Repo P&amp;L Oracle SQL tutorial thumbnail">
+        </div>
+      </div>
+    </section>
+
+    <section class="section tutorial-content-section">
+      <div class="container tutorial-layout">
+        <div class="tutorial-main">
+          <div class="video-shell">
+            <div class="video-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/hsQ0KH4Z-hs" title="Calculate Repo P&amp;L with Oracle SQL" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="video-actions">
+              <a class="button button-primary" href="https://youtu.be/hsQ0KH4Z-hs" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial_page" data-video="repo_pnl">▶ Watch on YouTube</a>
+              <a class="button button-secondary" href="../../downloads/repo_P&amp;L.sql" download data-track="download" data-file="repo_pnl_sql">↓ Download SQL</a>
+            </div>
+          </div>
+
+          <article class="tutorial-copy-block">
+            <p class="eyebrow">About this tutorial</p>
+            <h2>Calculate P&amp;L only for the reporting period</h2>
+            <p>This tutorial builds a single Oracle SQL query that calculates Repo P&amp;L for the portion of each transaction that actually overlaps with the reporting period.</p>
+            <p>The key step is defining the calculation boundaries with <strong>GREATEST</strong> and <strong>LEAST</strong>. This lets the same query handle transactions that started before the period, mature during the period, or remain open on the report date.</p>
+          </article>
+
+          <div class="tutorial-key-points">
+            <article><span>01</span><h3>Define the reporting period</h3><p>Use a small parameter CTE for the report start date and report date.</p></article>
+            <article><span>02</span><h3>Set calculation boundaries</h3><p>Use GREATEST for the start and LEAST for the end of the P&amp;L calculation.</p></article>
+            <article><span>03</span><h3>Calculate period P&amp;L</h3><p>Apply the daily result only to the number of days that belong to the reporting period.</p></article>
+          </div>
+        </div>
+
+        <aside class="tutorial-sidebar">
+          <div class="resource-card">
+            <p class="eyebrow">Resources</p>
+            <h3>Files used in this tutorial</h3>
+            <a class="resource-link" href="../../downloads/repo_P&amp;L.sql" download data-track="download" data-file="repo_pnl_sql"><span class="file-type">SQL</span><span><strong>Repo P&amp;L SQL</strong><small>Oracle SQL query</small></span><span>↓</span></a>
+          </div>
+
+          <div class="next-card">
+            <p class="eyebrow">Next in the workflow</p>
+            <span class="next-number">02</span>
+            <h3>Reconcile P&amp;L with the General Ledger</h3>
+            <p>Compare the analytical Repo P&amp;L with GL booking entries in a single SQL query.</p>
+            <span class="coming-soon">Coming soon</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-alt tutorial-workflow-section">
+      <div class="container">
+        <div class="section-heading workflow-heading">
+          <p class="eyebrow">Repo P&amp;L workflow</p>
+          <h2>From calculation to automated reporting</h2>
+          <p class="section-copy">This tutorial is the first step in the complete Repo P&amp;L reconciliation workflow.</p>
+        </div>
+        <article class="workflow-card compact-workflow">
+          <div class="workflow-steps">
+            <div class="workflow-step is-published is-current"><span class="step-number">01</span><span class="step-content"><span class="step-status">You are here</span><strong>Calculate Repo P&amp;L</strong><span>Oracle SQL · GREATEST &amp; LEAST</span></span><span class="step-action">Current</span></div>
+            <div class="workflow-step is-next"><span class="step-number">02</span><span class="step-content"><span class="step-status">Next tutorial</span><strong>Reconcile P&amp;L with the General Ledger</strong><span>Oracle SQL · Analytical data vs. GL entries</span></span><span class="step-action">Coming soon</span></div>
+            <div class="workflow-step"><span class="step-number">03</span><span class="step-content"><span class="step-status">Planned</span><strong>Load the Reconciliation into Excel</strong><span>Power Query · Database connection</span></span><span class="step-action">Coming soon</span></div>
+            <div class="workflow-step"><span class="step-number">04</span><span class="step-content"><span class="step-status">Planned</span><strong>Automate the Refresh</strong><span>Excel VBA · Repeatable workflow</span></span><span class="step-action">Coming soon</span></div>
+            <div class="workflow-step"><span class="step-number">05</span><span class="step-content"><span class="step-status">Planned</span><strong>Build the Reporting Layer</strong><span>Power BI · ODBC reporting</span></span><span class="step-action">Coming soon</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../../assets/logo-footer.png?v=footer-fix-1" alt="glFlow">
+        <p>Practical solutions for finance and accounting workflows.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Explore</h3>
+        <a href="../../#tutorials">Tutorials</a>
+        <a href="../../#workflows">Workflows</a>
+        <a href="../../#downloads">Downloads</a>
+        <a href="../../#about">About</a>
+      </div>
+      <div class="footer-column">
+        <h3>Technologies</h3>
+        <a href="../../#tutorials">SQL &amp; Oracle</a>
+        <a href="../../#tutorials">Excel VBA</a>
+        <a href="../../#tutorials">Python in Excel</a>
+        <a href="../../#tutorials">Power Query</a>
+      </div>
+      <div class="footer-column">
+        <h3>Connect</h3>
+        <a href="https://www.youtube.com/@glFlowTech/videos" target="_blank" rel="noopener">YouTube</a>
+        <a href="mailto:contact@glflow.org">contact@glflow.org</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">© 2026 glFlow • All rights reserved.</div>
+  </footer>
+</body>
+</html>

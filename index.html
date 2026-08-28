@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- glFlow Website v1.8: detailed YouTube video click tracking -->
+<!-- glFlow Website v2.0: tutorial detail pages -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -58,8 +58,7 @@
         },
         "email": "contact@glflow.org",
         "sameAs": [
-          "https://www.youtube.com/@glFlowTech/videos",
-          "https://github.com/glflow-org"
+          "https://www.youtube.com/@glFlowTech/videos"
         ]
       },
       {
@@ -85,7 +84,7 @@
     </a>
     <nav aria-label="Main navigation">
       <a href="#tutorials">Tutorials</a>
-      <a href="#topics">Topics</a>
+      <a href="#workflows">Workflows</a>
       <a href="#downloads">Downloads</a>
       <a href="#about">About</a>
       <a class="nav-cta" href="https://www.youtube.com/@glFlowTech/videos" target="_blank" rel="noopener" data-track="youtube" data-destination="channel">▶ YouTube</a>
@@ -108,7 +107,7 @@
           <a class="button button-secondary" href="#downloads">⬇ Downloads</a>
         </div>
       </div>
-      <a class="hero-visual" href="https://youtu.be/hsQ0KH4Z-hs" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial" data-video="repo_pnl">
+      <a class="hero-visual" href="tutorials/repo-pnl/" aria-label="Open Repo P&amp;L tutorial">
         <img src="assets/repo-pnl-thumbnail.png" alt="Repo PnL calculation with Oracle SQL tutorial">
       </a>
     </div>
@@ -121,8 +120,17 @@
         <h2>Built from real finance and accounting workflows</h2>
       </div>
 
+      <div class="technology-filter" role="group" aria-label="Filter tutorials by technology">
+        <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-button" type="button" data-filter="sql" aria-pressed="false">SQL</button>
+        <button class="filter-button" type="button" data-filter="vba" aria-pressed="false">VBA</button>
+        <button class="filter-button" type="button" data-filter="python" aria-pressed="false">Python</button>
+        <button class="filter-button" type="button" data-filter="power-query" aria-pressed="false">Power Query</button>
+      </div>
+      <p class="filter-status" id="filter-status" aria-live="polite">Showing all tutorials</p>
+
       <div class="tutorial-grid">
-        <article class="tutorial-card">
+        <article class="tutorial-card" data-technology="vba">
           <a class="tutorial-thumb" href="https://www.youtube.com/watch?v=cLxy_QnXoKE&t=5s" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial" data-video="vba_shortcuts">
             <img src="assets/vba-shortcuts-thumbnail.png" alt="VBA Shortcuts tutorial">
           </a>
@@ -137,7 +145,7 @@
           </div>
         </article>
 
-        <article class="tutorial-card">
+        <article class="tutorial-card" data-technology="python">
           <a class="tutorial-thumb" href="https://www.youtube.com/watch?v=uhXzDsRfGEU" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial" data-video="python_in_excel_reconciliation">
             <img src="assets/recon-thumbnail.png" alt="Python in Excel reconciliation tutorial">
           </a>
@@ -151,7 +159,7 @@
             </div>
           </div>
         </article>
-                <article class="tutorial-card">
+                <article class="tutorial-card" data-technology="sql">
           <a class="tutorial-thumb" href="https://www.youtube.com/watch?v=2X3RJy0JUQw" target="_blank" rel="noopener" data-track="youtube" data-destination="tutorial" data-video="current_coupon">
             <img src="assets/Current-Coupon-Thumbnail.png" alt="Oracle SQL Current Coupon tutorial">
           </a>
@@ -165,14 +173,10 @@
             </div>
           </div>
         </article>
-        <article class="tutorial-card">
+        <article class="tutorial-card" data-technology="sql">
   <a class="tutorial-thumb"
-     href="https://youtu.be/hsQ0KH4Z-hs"
-     target="_blank"
-     rel="noopener"
-     data-track="youtube"
-     data-destination="tutorial"
-     data-video="repo_pnl">
+     href="tutorials/repo-pnl/"
+     aria-label="Open Repo P&amp;L tutorial">
     <img src="assets/repo-pnl-thumbnail.png"
          alt="Repo PnL calculation with Oracle SQL tutorial">
   </a>
@@ -181,19 +185,8 @@
     <span class="tag">Oracle SQL</span>
     <h3>Calculate Repo PnL with Oracle SQL</h3>
     <p>Calculate repo profit and loss for a reporting period using the GREATEST and LEAST functions.</p>
-
     <div class="card-links">
-      <a href="https://youtu.be/hsQ0KH4Z-hs"
-         target="_blank"
-         rel="noopener"
-         data-track="youtube"
-         data-destination="tutorial"
-         data-video="repo_pnl">▶ Watch tutorial</a>
-
-      <a href="downloads/repo_P&amp;L.sql"
-         download
-         data-track="download"
-         data-file="repo_pnl_sql">↓ Download SQL</a>
+      <a href="tutorials/repo-pnl/" class="card-primary-link">View tutorial →</a>
     </div>
   </div>
 </article>
@@ -201,18 +194,26 @@
     </div>
   </section>
 
-  <section id="topics" class="section section-alt">
+  <section id="workflows" class="section section-alt">
     <div class="container">
-      <div class="section-heading">
-        <p class="eyebrow">Popular topics</p>
-        <h2>Tools for practical finance solutions</h2>
+      <div class="section-heading workflow-heading">
+        <p class="eyebrow">Workflows</p>
+        <h2>See how individual tutorials connect into a complete process</h2>
+        <p class="section-copy">Follow an end-to-end finance workflow across SQL, Power Query, VBA and reporting.</p>
       </div>
-      <div class="topics-grid">
-        <article><span>▣</span><h3>Excel Automation</h3><p>Faster, cleaner and more reliable workbook processes.</p></article>
-        <article><span>◇</span><h3>VBA Macros</h3><p>Reusable shortcuts and practical workflow automation.</p></article>
-        <article><span>●</span><h3>Python in Excel</h3><p>Reconciliation, comparison and data analysis with pandas.</p></article>
-        <article><span>▤</span><h3>SQL & Oracle</h3><p>Queries designed around accounting and reporting needs.</p></article>
-      </div>
+      <article class="workflow-card">
+        <div class="workflow-intro">
+          <div><span class="workflow-label">Finance workflow</span><h3>Repo P&amp;L Reconciliation</h3><p>Build the process from the P&amp;L calculation through GL reconciliation, Excel automation and reporting.</p></div>
+          <div class="workflow-progress" aria-label="1 of 5 workflow steps published"><strong>1 / 5</strong><span>published</span></div>
+        </div>
+        <div class="workflow-steps">
+          <a class="workflow-step is-published" href="tutorials/repo-pnl/"><span class="step-number">01</span><span class="step-content"><span class="step-status">Published</span><strong>Calculate Repo P&amp;L</strong><span>Oracle SQL · GREATEST &amp; LEAST</span></span><span class="step-action">Open →</span></a>
+          <div class="workflow-step is-next"><span class="step-number">02</span><span class="step-content"><span class="step-status">Next tutorial</span><strong>Reconcile P&amp;L with the General Ledger</strong><span>Oracle SQL · Analytical data vs. GL entries</span></span><span class="step-action">Coming soon</span></div>
+          <div class="workflow-step"><span class="step-number">03</span><span class="step-content"><span class="step-status">Planned</span><strong>Load the Reconciliation into Excel</strong><span>Power Query · Database connection</span></span><span class="step-action">Coming soon</span></div>
+          <div class="workflow-step"><span class="step-number">04</span><span class="step-content"><span class="step-status">Planned</span><strong>Automate the Refresh</strong><span>Excel VBA · Repeatable workflow</span></span><span class="step-action">Coming soon</span></div>
+          <div class="workflow-step"><span class="step-number">05</span><span class="step-content"><span class="step-status">Planned</span><strong>Build the Reporting Layer</strong><span>Power BI · ODBC reporting</span></span><span class="step-action">Coming soon</span></div>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -292,25 +293,43 @@
     <div class="footer-column">
       <h3>Quick links</h3>
       <a href="#tutorials">Tutorials</a>
+      <a href="#workflows">Workflows</a>
       <a href="#downloads">Downloads</a>
       <a href="#about">About</a>
     </div>
     <div class="footer-column">
-      <h3>Topics</h3>
-      <a href="#topics">Excel Automation</a>
-      <a href="#topics">VBA Macros</a>
-      <a href="#topics">Python in Excel</a>
-      <a href="#topics">SQL & Oracle</a>
+      <h3>Technologies</h3>
+      <a href="#tutorials" data-filter-link="sql">SQL &amp; Oracle</a>
+      <a href="#tutorials" data-filter-link="vba">Excel VBA</a>
+      <a href="#tutorials" data-filter-link="python">Python in Excel</a>
+      <a href="#tutorials" data-filter-link="power-query">Power Query</a>
     </div>
     <div class="footer-column">
         <h3>Connect</h3>
         <a href="https://www.youtube.com/@glFlowTech/videos" target="_blank" rel="noopener" data-track="youtube" data-destination="channel">YouTube</a>
-        <a href="https://github.com/glflow-org" target="_blank" rel="noopener">GitHub</a>
         <a href="mailto:contact@glflow.org">contact@glflow.org</a>
       </div>
   </div>
-  <div class="container footer-bottom">© 2026 glFlow • All rights reserved. • Built with GitHub Pages.</div>
+  <div class="container footer-bottom">© 2026 glFlow • All rights reserved.</div>
 </footer>
+
+  <script>
+    (function () {
+      const buttons = Array.from(document.querySelectorAll('.filter-button'));
+      const cards = Array.from(document.querySelectorAll('.tutorial-card[data-technology]'));
+      const status = document.getElementById('filter-status');
+      function applyFilter(filter) {
+        let visible = 0;
+        cards.forEach(function (card) { const show = filter === 'all' || card.dataset.technology === filter; card.hidden = !show; if (show) visible += 1; });
+        buttons.forEach(function (button) { const active = button.dataset.filter === filter; button.classList.toggle('active', active); button.setAttribute('aria-pressed', active ? 'true' : 'false'); });
+        const activeButton = buttons.find(function (button) { return button.dataset.filter === filter; });
+        const label = activeButton ? activeButton.textContent.trim() : 'All';
+        status.textContent = filter === 'all' ? 'Showing all tutorials' : visible + ' ' + label + (visible === 1 ? ' tutorial' : ' tutorials');
+      }
+      buttons.forEach(function (button) { button.addEventListener('click', function () { applyFilter(button.dataset.filter); }); });
+      document.querySelectorAll('[data-filter-link]').forEach(function (link) { link.addEventListener('click', function () { applyFilter(link.dataset.filterLink); }); });
+    })();
+  </script>
 
   <script>
     document.addEventListener('click', function (event) {
