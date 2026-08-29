@@ -352,7 +352,6 @@ function loadTable(table) {
 
   editor.focus();
 }
-}
 function renderResult({columns, rows, elapsedMs}) {
   if (!columns.length) {
     resultContainer.innerHTML = '<div class="empty-results"><strong>Query completed.</strong><span>No result columns were returned.</span></div>';
