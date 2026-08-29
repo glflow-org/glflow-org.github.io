@@ -245,6 +245,12 @@ const engine = new BrowserSqlEngine();
 let activeExample = 'explore';
 let activeMode = 'start';
 
+function trackEvent(eventName, params = {}) {
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', eventName, params);
+  }
+}  
+
 function escapeHtml(value) {
   return String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
 }
@@ -298,7 +304,15 @@ function setMode(mode) {
   updateLineNumbers();
   setMessage('');
   clearResults(activeMode === 'start' ? 'Starting point loaded — build the query from here.' : 'Final solution loaded — run it or compare it with your code.');
+
+  if (activeMode === 'solution') {
+    trackEvent('playground_solution_view', {
+      example: activeExample
+    });
+  }
+
   editor.focus();
+}
 }
 function selectExample(key, updateUrl=true) {
   const example = EXAMPLES[key] || EXAMPLES.explore;
@@ -309,7 +323,13 @@ function selectExample(key, updateUrl=true) {
   updateModeUi(example);
   updateLineNumbers();
   document.querySelectorAll('.example-button').forEach(btn => btn.classList.toggle('active', btn.dataset.example === activeExample));
-  if (updateUrl) history.replaceState(null,'',`?example=${encodeURIComponent(activeExample)}`);
+  if (updateUrl) {
+  history.replaceState(null,'',`?example=${encodeURIComponent(activeExample)}`);
+
+  trackEvent('playground_example_select', {
+    example: activeExample
+  });
+}
   setMessage('');
   clearResults(example.solution ? `${example.title} starting point is ready.` : `${example.title} is ready to run.`);
   editor.focus();
@@ -324,8 +344,15 @@ function loadTable(table) {
   document.querySelectorAll('.example-button').forEach(b=>b.classList.remove('active'));
   history.replaceState(null,'','./');
   setMessage('');
+  setMessage('');
   clearResults(`Explore ${table} is ready to run.`);
+
+  trackEvent('playground_table_select', {
+    table_name: table
+  });
+
   editor.focus();
+}
 }
 function renderResult({columns, rows, elapsedMs}) {
   if (!columns.length) {
@@ -343,6 +370,12 @@ function renderResult({columns, rows, elapsedMs}) {
 }
 async function runQuery() {
   setMessage('');
+
+  trackEvent('playground_query_run', {
+    example: activeExample || 'table',
+    mode: activeMode
+  });
+
   runButton.disabled = true;
   runButton.textContent = 'Running…';
   resultBadge.textContent = 'Running'; resultBadge.className = 'result-badge running';
