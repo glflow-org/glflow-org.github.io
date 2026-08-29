@@ -313,7 +313,6 @@ function setMode(mode) {
 
   editor.focus();
 }
-}
 function selectExample(key, updateUrl=true) {
   const example = EXAMPLES[key] || EXAMPLES.explore;
   activeExample = EXAMPLES[key] ? key : 'explore';
