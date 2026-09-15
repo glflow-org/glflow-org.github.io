@@ -211,8 +211,8 @@ SELECT
     currency,
     COALESCE(SUM(CASE WHEN type = 'ANAL' THEN pnl END), 0) AS anal,
     COALESCE(SUM(CASE WHEN type = 'BOOKED' THEN pnl END), 0) AS booked,
-    COALESCE(SUM(CASE WHEN type = 'ANAL' THEN pnl END), 0)
-      - COALESCE(SUM(CASE WHEN type = 'BOOKED' THEN pnl END), 0) AS diff
+    ROUND(COALESCE(SUM(CASE WHEN type = 'ANAL' THEN pnl END), 0)
+      - COALESCE(SUM(CASE WHEN type = 'BOOKED' THEN pnl END), 0),2) AS diff
 FROM recon
 GROUP BY
     gl,
