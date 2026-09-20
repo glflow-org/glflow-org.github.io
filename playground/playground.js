@@ -209,8 +209,8 @@ SELECT
     instrument_name,
     isin,
     currency,
-    COALESCE(SUM(CASE WHEN type = 'ANAL' THEN pnl END), 0) AS anal,
-    COALESCE(SUM(CASE WHEN type = 'BOOKED' THEN pnl END), 0) AS booked,
+    ROUND(COALESCE(SUM(CASE WHEN type = 'ANAL' THEN pnl END), 0),2) AS anal,
+    ROUND(COALESCE(SUM(CASE WHEN type = 'BOOKED' THEN pnl END), 0),) AS booked,
     ROUND(COALESCE(SUM(CASE WHEN type = 'ANAL' THEN pnl END), 0)
       - COALESCE(SUM(CASE WHEN type = 'BOOKED' THEN pnl END), 0),2) AS diff
 FROM recon
