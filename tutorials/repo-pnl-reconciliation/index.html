@@ -6,7 +6,7 @@
   <title>Repo P&amp;L Reconciliation with Oracle SQL | glFlow</title>
   <meta name="description" content="Reconcile analytical Repo P&amp;L with general ledger entries using Oracle SQL, CTEs, UNION ALL and conditional aggregation. Watch, practice and download the query.">
   <link rel="canonical" href="https://glflow.org/tutorials/repo-pnl-reconciliation/">
-  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../styles.css?v=mobile-nav-20261121">
   <link rel="icon" href="../../assets/logo.png">
 </head>
 <body class="tutorial-page">
@@ -15,14 +15,15 @@
       <a class="brand" href="../../" aria-label="glFlow home">
         <img src="../../assets/logo-source.png" alt="glFlow">
       </a>
-      <nav aria-label="Primary navigation">
+      <nav id="mobile-main-navigation" aria-label="Main navigation">
         <a href="../../#tutorials">Tutorials</a>
         <a href="../../#workflows">Workflows</a>
         <a href="../../playground/">Playground</a>
         <a href="../../#downloads">Downloads</a>
         <a href="../../#about">About</a>
-        <a class="nav-cta" href="https://www.youtube.com/@glFlowTech/videos" target="_blank" rel="noopener">▶ YouTube</a>
+
       </nav>
+    <button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-main-navigation"><span></span><span></span><span></span></button>
     </div>
   </header>
 
@@ -116,5 +117,18 @@
     </div>
     <div class="container footer-bottom">© 2026 glFlow • All rights reserved.</div>
   </footer>
+<script>
+(() => {
+  const button = document.querySelector('.mobile-menu-toggle');
+  const nav = document.querySelector('.site-header nav');
+  if (!button || !nav) return;
+  const close = () => { button.setAttribute('aria-expanded','false'); button.setAttribute('aria-label','Open navigation menu'); nav.classList.remove('mobile-nav-open'); };
+  button.addEventListener('click', () => { const open = button.getAttribute('aria-expanded') !== 'true'; button.setAttribute('aria-expanded',String(open)); button.setAttribute('aria-label',open ? 'Close navigation menu' : 'Open navigation menu'); nav.classList.toggle('mobile-nav-open',open); });
+  nav.addEventListener('click', e => { if (e.target.closest('a')) close(); });
+  document.addEventListener('click', e => { if (!e.target.closest('.site-header')) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  window.addEventListener('resize', () => { if (window.innerWidth > 720) close(); });
+})();
+</script>
 </body>
 </html>
