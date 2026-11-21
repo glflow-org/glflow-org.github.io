@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Repo P&amp;L Reconciliation with Oracle SQL | glFlow</title>
-  <meta name="description" content="Reconcile analytical Repo P&amp;L with general ledger entries using Oracle SQL, CTEs, UNION ALL and conditional aggregation. Watch, practice and download the query.">
+  <title>SQL Reconciliation: CTE, COALESCE &amp; UNION ALL | glFlow</title>
+  <meta name="description" content="Learn SQL reconciliation with Oracle CTEs, UNION ALL, COALESCE and conditional aggregation. Compare Repo P&amp;L with GL entries using a practical example.">
   <link rel="canonical" href="https://glflow.org/tutorials/repo-pnl-reconciliation/">
   <link rel="stylesheet" href="../../styles.css?v=mobile-nav-20261121">
   <link rel="icon" href="../../assets/logo.png">
+  <style>.recon-seo-guide{margin-top:38px;max-width:820px}.recon-seo-guide h2{font-size:1.45rem;line-height:1.3;margin:32px 0 12px}.recon-seo-guide h3{font-size:1.08rem;margin:23px 0 8px}.recon-seo-guide p{line-height:1.75;margin:0 0 16px;color:var(--muted)}.recon-seo-guide a{color:var(--blue-deep);text-decoration:underline;text-underline-offset:3px}.recon-seo-guide code{font-family:Consolas,"Roboto Mono",monospace;font-size:.92em}.recon-code{overflow-x:auto;max-width:100%;background:#101821;color:#e9f1f7;padding:20px;border-radius:12px;line-height:1.65;font-size:.84rem;margin:16px 0 20px}.recon-code code{font-size:inherit}@media(max-width:720px){.recon-seo-guide{margin-top:28px}.recon-seo-guide h2{font-size:1.22rem}.recon-code{padding:14px;font-size:.72rem}}</style>
 </head>
 <body class="tutorial-page">
   <header class="site-header">
@@ -62,6 +63,49 @@
 
           <article class="tutorial-copy-block"><p class="eyebrow">About this tutorial</p><h2>Compare analytical and booked Repo P&amp;L</h2><p>Continue from the previous Repo P&amp;L calculation tutorial. We aggregate the analytical results and the corresponding general ledger entries at the same level: GL account, instrument, ISIN and currency.</p><p>Using Common Table Expressions (CTEs), UNION ALL and conditional aggregation, we bring both sides together and calculate the difference between analytical and booked P&amp;L.</p><p><a href="../repo-pnl/">← Start with the Repo P&amp;L calculation tutorial</a></p></article>
           <div class="tutorial-key-points"><article><span>01</span><h3>Prepare analytical P&amp;L</h3><p>Reuse the previous calculation and aggregate by GL, instrument, ISIN and currency.</p></article><article><span>02</span><h3>Prepare booked P&amp;L</h3><p>Apply debit and credit signs and aggregate the accounting entries at the same level.</p></article><article><span>03</span><h3>Reconcile the balances</h3><p>Combine both datasets with UNION ALL and calculate analytical, booked and difference columns.</p></article></div>
+          <section class="recon-seo-guide" aria-label="Oracle SQL reconciliation walkthrough">
+            <h2>How to reconcile two datasets using Oracle SQL</h2>
+            <p>Data reconciliation compares two independently calculated balances at the same level of detail. In this example, we compare analytical Repo profit and loss with amounts posted to the general ledger, grouped by GL account, instrument, ISIN and currency.</p>
+            <h2>Step 1: Separate the logic with Common Table Expressions (CTEs)</h2>
+            <p>The query starts with a <code>params</code> CTE containing the reporting dates. The <code>analytical_balance</code> CTE calculates and aggregates Repo P&amp;L, while <code>booked_balance</code> aggregates the corresponding general ledger entries. Keeping these calculations separate makes the reconciliation easier to review and troubleshoot.</p>
+            <h2>Step 2: Combine analytical and booked balances with UNION ALL</h2>
+            <p>Each dataset includes a source label: <code>ANAL</code> for analytical P&amp;L and <code>BOOKED</code> for accounting entries. The <code>recon</code> CTE combines them using <code>UNION ALL</code>. This retains every aggregated row from both sources, including rows that exist on only one side.</p>
+            <pre class="recon-code"><code>recon AS (
+    SELECT * FROM analytical_balance
+    UNION ALL
+    SELECT * FROM booked_balance
+)</code></pre>
+            <h2>Step 3: Use COALESCE and conditional aggregation to calculate the difference</h2>
+            <p><code>CASE WHEN</code> directs each source's amount into its own column. <code>SUM</code> aggregates the values at the common reconciliation keys, while <code>COALESCE(..., 0)</code> converts a missing aggregate to zero. This is especially useful when an instrument has analytical P&amp;L but no corresponding booked entries, or vice versa.</p>
+            <pre class="recon-code"><code>SELECT
+    gl,
+    instrument_name,
+    isin,
+    currency,
+    ROUND(COALESCE(SUM(CASE WHEN type = 'ANAL'
+        THEN pnl END), 0), 2) AS anal,
+    ROUND(COALESCE(SUM(CASE WHEN type = 'BOOKED'
+        THEN pnl END), 0), 2) AS booked,
+    ROUND(
+        COALESCE(SUM(CASE WHEN type = 'ANAL'
+            THEN pnl END), 0)
+      - COALESCE(SUM(CASE WHEN type = 'BOOKED'
+            THEN pnl END), 0), 2) AS diff
+FROM recon
+GROUP BY gl, instrument_name, isin, currency;</code></pre>
+            <p>The <code>diff</code> column is analytical P&amp;L less booked P&amp;L. A zero difference means the two totals agree for that grouping; a nonzero value identifies a reconciliation item to investigate.</p>
+            <h2>Step 4: Review sign conventions and reporting dates</h2>
+            <p>In the supplied example, general ledger debits are treated as positive and credits as negative. The analytical calculation uses the Repo transaction type to determine its sign. Both sides must follow consistent sign conventions and reporting periods for the difference to be meaningful.</p>
+            <h2>Try the complete reconciliation in the SQL Playground</h2>
+            <p>Open the <a href="../../playground/?example=reconciliation">Repo P&amp;L Reconciliation example</a> to run the full query with sample data, or <a href="../../downloads/glFlow_Repo_PnL_Reconciliation.sql" download>download the complete Oracle SQL script</a>. For the calculation behind the analytical side, see the <a href="../repo-pnl/">previous Repo P&amp;L tutorial</a>.</p>
+            <h2>Frequently asked questions</h2>
+            <h3>Why use UNION ALL instead of INNER JOIN for reconciliation?</h3>
+            <p><code>UNION ALL</code> preserves both datasets, including records that have no matching group on the other side. An <code>INNER JOIN</code> would omit unmatched groups unless the join strategy were changed. A <code>FULL OUTER JOIN</code> is another valid reconciliation approach.</p>
+            <h3>What does COALESCE(SUM(...), 0) do?</h3>
+            <p>It returns the aggregated amount when present and zero when the aggregate is null. This prevents missing values from turning the calculated difference into null.</p>
+            <h3>Can the same SQL reconciliation pattern be used for other data?</h3>
+            <p>Yes. Once the two sources use matching keys, consistent units and sign conventions, the same CTE, UNION ALL and conditional aggregation pattern can compare other analytical and accounting datasets.</p>
+          </section>
         </div>
 
         <aside class="tutorial-sidebar"><div class="resource-card"><p class="eyebrow">Resources</p><h3>Files used in this tutorial</h3><a class="resource-link" href="../../downloads/glFlow_Repo_PnL_Reconciliation.sql" download data-track="download" data-file="repo_pnl_reconciliation_sql"><span class="file-type">SQL</span><span><strong>Repo P&amp;L Reconciliation SQL</strong><small>Complete SQL query</small></span><span>↓</span></a></div><div class="next-card"><p class="eyebrow">Previous in the workflow</p><span class="next-number">01</span><h3>Calculate Repo P&amp;L</h3><p>Build the analytical calculation used as the starting point for this reconciliation.</p><a class="button button-secondary" href="../repo-pnl/">← Previous tutorial</a></div></aside>
