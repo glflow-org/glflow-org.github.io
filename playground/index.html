@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SQL Playground | Practice SQL Online with glFlow</title>
-  <meta name="description" content="Practice SQL online with the glFlow finance demo database. Run queries, explore tables, and learn SQL with tutorial starting points and final solutions.">
+  <title>Free SQL Playground with Sample Data | glFlow</title>
+  <meta name="description" content="Practice SQL online for free with sample finance data. Run SELECT queries in a browser-based DuckDB playground, explore tables and try guided SQL examples.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#0f5da8">
   <link rel="canonical" href="https://glflow.org/playground/">
@@ -34,6 +34,7 @@
     "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
   }
   </script>
+  <style>.playground-seo-section{padding:64px 0}.playground-seo-section>.container{max-width:1120px}.playground-seo-section h2{font-size:1.65rem;margin:22px 0 14px}.playground-seo-section h3{font-size:1.06rem;margin:20px 0 9px}.playground-seo-section p{max-width:850px;line-height:1.75;color:var(--muted);margin:0 0 18px}.playground-seo-section a{color:var(--blue-deep);text-decoration:underline;text-underline-offset:3px}.playground-seo-section code{font-family:Consolas,"Roboto Mono",monospace;font-size:.9em}.playground-seo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:24px 0 32px}.playground-seo-grid article{border:1px solid var(--line);border-radius:14px;padding:20px;background:#fff}.playground-seo-grid h3{margin-top:0}@media(max-width:800px){.playground-seo-grid{grid-template-columns:1fr}.playground-seo-section{padding:42px 0}.playground-seo-section h2{font-size:1.35rem}}</style>
 </head>
 <body class="playground-page">
 <header class="site-header">
@@ -59,8 +60,8 @@
     <div class="container playground-intro-grid">
       <div>
         <p class="eyebrow">glFlow SQL Playground · v1.2</p>
-        <h1>Run SQL. Explore the data. Learn by doing.</h1>
-        <p class="playground-lead">Practice SQL against the GLF securities demo database directly in your browser. Explore securities, repo transactions, accounting entries and reference data with no installation or login required.</p>
+        <h1>Free SQL Playground: Practice SQL Online with Sample Data</h1>
+        <p class="playground-lead">Run SQL queries directly in your browser using a free, ready-to-use finance demo database. Explore securities, repo transactions and accounting entries with no installation or login required. Powered by DuckDB-Wasm.</p>
       </div>
       <div class="engine-card" aria-live="polite">
         <span class="engine-dot" id="engine-dot"></span>
@@ -153,6 +154,26 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="playground-seo-section" aria-label="How to practice SQL online">
+    <div class="container">
+      <p class="eyebrow">SQL practice with sample data</p>
+      <h2>How to use the free SQL Playground</h2>
+      <p>Start with a ready-made query or write your own <code>SELECT</code> statement in the editor above. Explore the demo database tables, run a query with the Run Query button or <code>Ctrl + Enter</code>, and review the results in the table below the editor. Tutorial examples include a starting point and a final solution so you can practice each technique.</p>
+      <div class="playground-seo-grid">
+        <article><h3>Practice SQL with real-world examples</h3><p>Try filtering, joins, window functions, aggregations and financial reconciliation patterns using a structured securities and accounting dataset.</p></article>
+        <article><h3>Explore sample SQL tables</h3><p>Use the database explorer to inspect instruments, coupons, repo transactions, general ledger entries and reference tables before writing your query.</p></article>
+        <article><h3>Learn with guided tutorials</h3><p>Follow the <a href="../tutorials/current-coupon/">ROW_NUMBER() coupon tutorial</a> or the <a href="../tutorials/repo-pnl-reconciliation/">Repo P&amp;L reconciliation tutorial</a>, then load the matching example in the editor.</p></article>
+      </div>
+      <h2>Frequently asked questions</h2>
+      <h3>Is this SQL Playground free?</h3>
+      <p>Yes. You can use the demo database and run queries in your browser without creating an account or installing database software.</p>
+      <h3>Does the SQL Playground run Oracle SQL?</h3>
+      <p>The browser engine is DuckDB-Wasm, not Oracle Database. Many common SQL patterns work similarly, but Oracle-specific syntax and functions may require adjustments. The tutorial examples are adapted for the Playground where necessary.</p>
+      <h3>Can I practice SQL without uploading my own data?</h3>
+      <p>Yes. The Playground includes a prepared GLF demo dataset, so you can explore tables and practice queries immediately.</p>
     </div>
   </section>
 
