@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=footer-fix-1">
+  <link rel="stylesheet" href="styles.css?v=mobile-nav-20261121">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WG2D2PWDNS"></script>
@@ -82,7 +82,7 @@
     <a class="brand" href="#top" aria-label="glFlow home">
       <img src="assets/logo-header.png?v=1.3" alt="glFlow logo">
     </a>
-    <nav aria-label="Main navigation">
+    <nav id="mobile-main-navigation" aria-label="Main navigation">
       <a href="#tutorials">Tutorials</a>
       <a href="#workflows">Workflows</a>
       <a href="playground/">Playground</a>
@@ -90,6 +90,7 @@
       <a href="#about">About</a>
       <a class="nav-cta" href="https://www.youtube.com/@glFlowTech/videos" target="_blank" rel="noopener" data-track="youtube" data-destination="channel">▶ YouTube</a>
     </nav>
+    <button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-main-navigation"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -104,7 +105,7 @@
           finance and accounting tasks and build efficient workflows
         </p>
         <div class="button-row">
-          <a class="button button-primary" href="https://www.youtube.com/@glFlowTech/videos" target="_blank" rel="noopener" data-track="youtube" data-destination="channel">▶ Watch on YouTube</a>
+          <a class="button button-primary" href="#tutorials">Explore Tutorials →</a>
           <a class="button button-secondary" href="#downloads">⬇ Downloads</a>
           <a class="button button-secondary playground-hero-button" href="playground/">⌘ SQL Playground</a>
         </div>
@@ -365,5 +366,30 @@
     });
   </script>
 
+<script>
+  // Accessible mobile navigation; keep the page usable without JavaScript.
+  (() => {
+    const button = document.querySelector('.mobile-menu-toggle');
+    const nav = document.querySelector('.site-header nav');
+    if (!button || !nav) return;
+    const close = () => {
+      button.setAttribute('aria-expanded', 'false');
+      button.setAttribute('aria-label', 'Open navigation menu');
+      nav.classList.remove('mobile-nav-open');
+    };
+    button.addEventListener('click', () => {
+      const open = button.getAttribute('aria-expanded') !== 'true';
+      button.setAttribute('aria-expanded', String(open));
+      button.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      nav.classList.toggle('mobile-nav-open', open);
+    });
+    nav.addEventListener('click', e => { if (e.target.closest('a')) close(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.site-header')) close();
+    });
+    window.addEventListener('resize', () => { if (window.innerWidth > 720) close(); });
+  })();
+</script>
 </body>
 </html>
